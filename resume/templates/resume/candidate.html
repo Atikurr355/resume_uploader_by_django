@@ -1,0 +1,67 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% comment %} {% load myfilter %} {% endcomment %}
+{% block title %}candidate{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 py-1 m-auto profile-home text-light ">
+            
+            <div class="profile-pic rounded-circle">
+                <img src="{{candidate.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
+            </div>
+            <div class="row">
+                <div class="col-md-12 menu">
+                    <div class="navbar-brand text-warning">
+                        {{candidate.name}}
+                    </div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-warning active" href="#">Profile Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning " href="#">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-9">
+                    <p class="h5">Name: {{candidate.name}}</p>
+                    <p class="h5">Date of Birth: {{candidate.dob}}</p>
+                    <p class="h5">Gender: {{candidate.gender}}</p>
+                    <p class="h5">Address: {{candidate.locality}}, {{candidate.city}}, {{candidate.state}} - {{candidate.pin}}</p>
+                    <p class="h5">Mobile No: {{candidate.mobile}}</p>
+                    <p class="h5">Email ID: {{candidate.email}}</p>
+                    <p class="h5">Preferred Job Cities: {{candidate.job_city}}</p>
+                    <p class="h5">Attachment: <a href="{{candidate.my_file.url}}">Download File</a></p>
+                    <div class="text-center">
+                        <a href="/" class="btn btn-warning mb-3 btn-block">Back to Home</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    {% for candi in candis %}
+                    <div class="list-group-sm">
+                        <a href="{% url 'candidate' candi.id %}" class="list-group-item list-group-item-action my-1 bg-warning">
+                            {{candi.name}}
+                        </a>
+        
+        
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+#id_gender,#id_job_city{
+    display: inline-flex;
+}
+#id_gender_0, #id_gender_1, #id_gender_2{
+    margin-left: 10px;
+}
+#id_job_city_0, #id_job_city_1, #id_job_city_2, #id_job_city_3, #id_job_city_4, #id_job_city_5, #id_job_city_6{
+    margin-left: 10px;
+}
+
+
+html {
+    scroll-behavior: smoth; }
+  
+  body {
+    background-color: #014871; }
+  
+  #container {
+    color: #fff; }
+  
+  #cover-pic {
+    height: 300px;
+    background-image: url("/img/cover_pic.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; }
+    #cover-pic .profile-pic {
+      position: absolute;
+      top: 100px;
+      height: 200px;
+      width: 200px;
+      background-image: url("/img/user.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%; }
+    #cover-pic .name {
+      position: absolute;
+      top: 300px; }
+  
+  #menu {
+    position: sticky; }
+  
+  #profile {
+    min-height: 91vh;
+    background-color: #5761B2; }
+  
+  #about {
+    min-height: 91vh;
+    background-color: #5761B2; }
+  
+  #experience {
+    min-height: 91vh;
+    background-color: #5761B2; }
+  
+  #resume {
+    min-height: 91vh;
+    background-color: #5761B2; }

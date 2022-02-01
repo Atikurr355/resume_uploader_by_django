@@ -1,0 +1,46 @@
+{% extends 'resume/base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+<div class="container text-light">
+    <div class="row">
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 shadow py-5 shadow">
+            
+            <form action="" method="post" enctype="multipart/form-data" class="p-5">
+                <h1 class="bg-warning text-center text-primary my-2 py-2">
+                    Upload Your Resume
+                </h1>
+                {% csrf_token %}
+                {% for fm in form %}
+                <div class="form-group mb-3 p-2">
+
+                    {{fm.label_tag}} {{fm}} <small class="text-danger ">{{fm.errors|striptags}}</small>
+
+                </div>
+                {% endfor %}
+                <input type="submit" value="submit" class="btn btn-warning btn-block">
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 py-5 text-center">
+            <h1 class="text-warning">
+                <em><u>List of candidate</u></em>
+            </h1>
+            {% for candidate in candidates %}
+            <div class="list-group">
+                <a href="{% url 'candidate' candidate.id %}" class="list-group-item list-group-item-action my-1 bg-warning">
+                    {{candidate.name}}
+                </a>
+
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
